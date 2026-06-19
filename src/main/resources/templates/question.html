@@ -24,19 +24,18 @@
       margin: 10px;
     }
 
-    /* ✅ RESPONSIVE BUTTONS */
-    button {
-      padding: 4vw 6vw;
-      font-size: clamp(24px, 7vw, 70px);
-      margin: 3vw;
-      cursor: pointer;
-      border: none;
-      border-radius: 12px;
-      color: white;
-      transition: all 0.3s ease;
-      position: relative;
-      z-index: 10;
-    }
+   button {
+  padding: 20px 40px;
+  font-size: 24px;
+  margin: 15px;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
+}
 
     #yesBtn {
       background: #00c851;
@@ -46,7 +45,7 @@
     #noBtn {
       position: absolute;
       background: #ff007a;
-      z-index: 9999; /* ✅ ALWAYS ON TOP */
+      z-index: 9999; 
     }
 
     #imageContainer {
@@ -147,8 +146,7 @@
       imageContainer.appendChild(newImg);
 
       count++;
-
-      // move NO button randomly but never block YES
+      
       let x, y, noRect, yesRect;
       let attempts = 0;
 
@@ -166,13 +164,11 @@
 
       } while (isOverlapping(noRect, yesRect) && attempts < 50);
 
-      // grow YES button
       yesBtn.style.fontSize = (18 + count * 5) + "px";
       yesBtn.style.padding =
         (12 + count * 2) + "px " +
         (20 + count * 4) + "px";
 
-      // extra YES button
       if (count === 3 && !extraYes) {
 
         extraYes = document.createElement("button");
