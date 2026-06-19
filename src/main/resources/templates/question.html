@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>BemyGirlfriend | Question</title>
+
   <style>
     body {
       text-align: center;
@@ -13,19 +14,24 @@
       background: linear-gradient(to bottom, #87ceeb, #ffffff);
     }
 
+    h1 {
+      font-size: clamp(22px, 5vw, 40px);
+      margin-top: 20px;
+    }
+
     #mainGif {
-      width: 200px;
+      width: 180px;
       margin: 10px;
     }
 
+    /* ✅ RESPONSIVE BUTTONS */
     button {
-      padding: 28px 40px;
-      font-size: 24px;
-      margin: 15px;
+      padding: 4vw 6vw;
+      font-size: clamp(24px, 7vw, 70px);
+      margin: 3vw;
       cursor: pointer;
       border: none;
       border-radius: 12px;
-      background: #ff007a;
       color: white;
       transition: all 0.3s ease;
       position: relative;
@@ -34,10 +40,13 @@
 
     #yesBtn {
       background: #00c851;
+      z-index: 5;
     }
 
     #noBtn {
       position: absolute;
+      background: #ff007a;
+      z-index: 9999; /* ✅ ALWAYS ON TOP */
     }
 
     #imageContainer {
@@ -51,7 +60,7 @@
 
     #imageContainer img {
       position: absolute;
-      width: 150px;
+      width: 140px;
       height: 100px;
       object-fit: cover;
       border-radius: 8px;
@@ -60,26 +69,24 @@
 
     @keyframes popIn {
       from {
-        transform: scale(0) rotate(0deg);
+        transform: scale(0);
         opacity: 0;
       }
       to {
-        transform: scale(1) rotate(360deg);
+        transform: scale(1);
         opacity: 1;
       }
     }
 
-    @media (max-width: 340px) {
-      h1 {
-        font-size: 28px;
-      }
-
+    /* extra safety for small phones */
+    @media (max-width: 480px) {
       button {
-        font-size: 120px;
+        font-size: clamp(28px, 8vw, 60px);
       }
     }
   </style>
 </head>
+
 <body>
 
   <h1>Will you be my girlfriend? ❤️</h1>
@@ -130,7 +137,6 @@
 
       const newImg = document.createElement('img');
       newImg.src = images[count % images.length];
-      newImg.alt = 'No button image';
 
       const imgX = Math.random() * (window.innerWidth - 120);
       const imgY = Math.random() * (window.innerHeight - 120);
@@ -142,28 +148,31 @@
 
       count++;
 
-      let x, y, noBtnRect, yesBtnRect;
+      // move NO button randomly but never block YES
+      let x, y, noRect, yesRect;
       let attempts = 0;
 
       do {
-        x = Math.random() * (window.innerWidth - 100);
-        y = Math.random() * (window.innerHeight - 100);
+        x = Math.random() * (window.innerWidth - 120);
+        y = Math.random() * (window.innerHeight - 120);
 
         noBtn.style.left = x + "px";
         noBtn.style.top = y + "px";
 
-        noBtnRect = noBtn.getBoundingClientRect();
-        yesBtnRect = yesBtn.getBoundingClientRect();
+        noRect = noBtn.getBoundingClientRect();
+        yesRect = yesBtn.getBoundingClientRect();
 
         attempts++;
 
-      } while (isOverlapping(noBtnRect, yesBtnRect) && attempts < 50);
+      } while (isOverlapping(noRect, yesRect) && attempts < 50);
 
+      // grow YES button
       yesBtn.style.fontSize = (18 + count * 5) + "px";
       yesBtn.style.padding =
         (12 + count * 2) + "px " +
         (20 + count * 4) + "px";
 
+      // extra YES button
       if (count === 3 && !extraYes) {
 
         extraYes = document.createElement("button");
@@ -174,6 +183,7 @@
         extraYes.style.fontSize = yesBtn.style.fontSize;
         extraYes.style.padding = yesBtn.style.padding;
         extraYes.style.position = "relative";
+        extraYes.style.zIndex = "5";
 
         extraYes.onclick = () => {
           window.location.href = "/ily";
