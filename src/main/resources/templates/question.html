@@ -1,221 +1,205 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sayang naman kong dimo makikita, "sana ma pindot mo"| question/title>
+    <title>Sayang naman kung di mo makikita</title>
 
-  <style>
-    body {
-  text-align: center;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
-  height: 100vh;
-  margin: 0;
-  position: relative;
-  background: linear-gradient(to bottom, #87ceeb, #ffffff);
-}
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            background: linear-gradient(to bottom, #87ceeb, #ffffff);
+        }
 
-h1 {
-  font-size: clamp(22px, 5vw, 40px);
-  margin-top: 20px;
-  position: relative;
-  z-index: 10000;
-}
+        h1 {
+            font-size: clamp(22px, 5vw, 40px);
+            margin-top: 20px;
+            position: relative;
+            z-index: 10000;
+        }
 
-#mainGif {
-  width: 250px;
-  margin: 10px;
-}
+        #mainGif {
+            width: 250px;
+            margin: 10px;
+        }
 
-button {
-  padding: 25px 55px;
-  font-size: 32px;
-  margin: 15px;
-  cursor: pointer;
-  border: none;
-  border-radius: 12px;
-  color: white;
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 10;
-}
+        button {
+            padding: 25px 55px;
+            font-size: 32px;
+            margin: 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 12px;
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 10;
+        }
 
-#yesBtn {
-  background: #00c851;
-  z-index: 5;
-}
+        #yesBtn {
+            background: #00c851;
+        }
 
-#noBtn {
-  position: absolute;
-  background: #ff007a;
-  z-index: 9999;
-}
+        #noBtn {
+            position: absolute;
+            background: #ff007a;
+            z-index: 9999;
+        }
 
-#imageContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 150%;
-  pointer-events: none;
-}
+        #imageContainer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150%;
+            pointer-events: none;
+        }
 
-#imageContainer img {
-  position: absolute;
-  width: 220px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 12px;
-  animation: popIn 0.3s ease;
-}
+        #imageContainer img {
+            position: absolute;
+            width: 220px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+            animation: popIn 0.3s ease;
+        }
 
-@keyframes popIn {
-  from {
-    transform: scale(0);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
+        @keyframes popIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
 
-    @media (max-width: 768px) {
+        @media (max-width: 768px) {
+            button {
+                padding: 12vw 18vw;
+                font-size: clamp(50px, 22vw, 130px);
+                margin: 4vw;
+            }
 
-  button {
-    padding: 12vw 18vw;
-    font-size: clamp(50px, 22vw, 130px);
-    margin: 4vw;
-  }
+            #mainGif {
+                width: 500px;
+                max-width: 98vw;
+            }
 
-  #mainGif {
-    width: 500px;
-    max-width: 98vw;
-  }
-
-  #imageContainer img {
-    width: 450px;
-    height: 380px;
-  }
-}
-
-  </style>
+            #imageContainer img {
+                width: 450px;
+                height: 380px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <h1>Do u wanna marry me ❤️</h1>
+<h1>Do you wanna marry me ❤️</h1>
 
-  <img id="mainGif" src="project-img/gif-gifkk.gif" alt="cute">
+<img id="mainGif" src="project-img/gif-gifkk.gif" alt="cute">
 
-  <br>
+<br>
 
-  <button id="yesBtn">YES</button>
-  <button id="noBtn">NO</button>
+<button id="yesBtn">YES</button>
+<button id="noBtn">NO</button>
 
-  <div id="imageContainer"></div>
+<div id="imageContainer"></div>
 
-  <script>
+<script>
     const noBtn = document.getElementById("noBtn");
     const yesBtn = document.getElementById("yesBtn");
     const imageContainer = document.getElementById("imageContainer");
     const mainGif = document.getElementById("mainGif");
 
     const images = [
-      'project-img/1.png',
-      'project-img/2.png',
-      'project-img/3.png',
-      'project-img/4.png',
-      'project-img/5.png',
-      'project-img/6.png',
-      'project-img/7.png',
-      'project-img/8.png'
+        'project-img/1.png',
+        'project-img/2.png',
+        'project-img/3.png',
+        'project-img/4.png',
+        'project-img/5.png',
+        'project-img/6.png',
+        'project-img/7.png',
+        'project-img/8.png'
     ];
 
     let count = 0;
     let extraYes;
 
     function isOverlapping(rect1, rect2) {
-      return !(
-        rect1.right < rect2.left ||
-        rect1.left > rect2.right ||
-        rect1.bottom < rect2.top ||
-        rect1.top > rect2.bottom
-      );
+        return !(
+            rect1.right < rect2.left ||
+            rect1.left > rect2.right ||
+            rect1.bottom < rect2.top ||
+            rect1.top > rect2.bottom
+        );
     }
 
     noBtn.addEventListener("click", () => {
 
-      if (count === 0) {
-        mainGif.src = 'project-img/2.png';
-      }
+        if (count === 0) {
+            mainGif.src = 'project-img/2.png';
+        }
 
-      const newImg = document.createElement('img');
-      newImg.src = images[count % images.length];
+        const newImg = document.createElement('img');
+        newImg.src = images[count % images.length];
 
-      const imgX = Math.random() * (window.innerWidth - 120);
-      const imgY = Math.random() * (window.innerHeight - 120);
+        const imgX = Math.random() * (window.innerWidth - 120);
+        const imgY = Math.random() * (window.innerHeight - 120);
 
-      newImg.style.left = imgX + "px";
-      newImg.style.top = imgY + "px";
+        newImg.style.left = imgX + "px";
+        newImg.style.top = imgY + "px";
 
-      imageContainer.appendChild(newImg);
+        imageContainer.appendChild(newImg);
 
-      count++;
-      
-      let x, y, noRect, yesRect;
-      let attempts = 0;
+        count++;
 
-      do {
-        x = Math.random() * (window.innerWidth - 120);
-        y = Math.random() * (window.innerHeight - 120);
+        let x, y, noRect, yesRect;
+        let attempts = 0;
 
-        noBtn.style.left = x + "px";
-        noBtn.style.top = y + "px";
+        do {
+            x = Math.random() * (window.innerWidth - 120);
+            y = Math.random() * (window.innerHeight - 120);
 
-        noRect = noBtn.getBoundingClientRect();
-        yesRect = yesBtn.getBoundingClientRect();
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
 
-        attempts++;
+            noRect = noBtn.getBoundingClientRect();
+            yesRect = yesBtn.getBoundingClientRect();
 
-      } while (isOverlapping(noRect, yesRect) && attempts < 50);
+            attempts++;
 
-      yesBtn.style.fontSize = (18 + count * 5) + "px";
-      yesBtn.style.padding =
-        (12 + count * 2) + "px " +
-        (20 + count * 4) + "px";
+        } while (isOverlapping(noRect, yesRect) && attempts < 50);
 
-      if (count === 3 && !extraYes) {
+        yesBtn.style.fontSize = (18 + count * 5) + "px";
+        yesBtn.style.padding =
+            (12 + count * 2) + "px " +
+            (20 + count * 4) + "px";
 
-        extraYes = document.createElement("button");
-        extraYes.innerText = "YES ❤️";
-        extraYes.id = "extraYes";
+        if (count === 3 && !extraYes) {
 
-        extraYes.style.background = "#00c851";
-        extraYes.style.fontSize = yesBtn.style.fontSize;
-        extraYes.style.padding = yesBtn.style.padding;
-        extraYes.style.position = "relative";
-        extraYes.style.zIndex = "5";
+            extraYes = document.createElement("button");
+            extraYes.innerText = "YES ❤️";
 
-        extraYes.onclick = () => {
-          window.location.href = "/ily";
-        };
+            extraYes.style.background = "#00c851";
 
-        document.body.insertBefore(extraYes, imageContainer);
-      }
+            extraYes.onclick = () => {
+                window.location.href = "ily.html";
+            };
 
-      if (extraYes) {
-        extraYes.style.fontSize = (18 + count * 5) + "px";
-        extraYes.style.padding =
-          (12 + count * 2) + "px " +
-          (20 + count * 4) + "px";
-      }
+            document.body.appendChild(extraYes);
+        }
     });
 
     yesBtn.addEventListener("click", () => {
-      window.location.href = "/ily";
+        window.location.href = "ily.html";
     });
-
-  </script>
+</script>
 
 </body>
 </html>
