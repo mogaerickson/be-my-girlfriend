@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ILY 😘|ily</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    font-family:Arial, sans-serif;
+
+    background:linear-gradient(to bottom,#ffd6e7,#fff0f5);
+    padding:20px;
+}
+
+.container{
+    background:rgba(255,255,255,0.4);
+    backdrop-filter:blur(8px);
+    border-radius:20px;
+    padding:25px;
+    max-width:500px;
+    width:100%;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+h1{
+    color:#ff4d88;
+    font-size:clamp(2rem,5vw,3rem);
+    margin-bottom:10px;
+}
+
+h2{
+    color:#ff6699;
+    font-size:clamp(1.3rem,4vw,2rem);
+    margin:15px 0;
+}
+
+p{
+    color:#555;
+    font-size:1rem;
+}
+
+.imageContainer{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin:20px 0;
+}
+
+.imageContainer img{
+    width:min(140px, 30vw);
+    height:auto;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    transition:transform .3s;
+}
+
+.imageContainer img:hover{
+    transform:scale(1.08);
+}
+
+.heart{
+    font-size:2rem;
+    animation:float 2s infinite ease-in-out;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+.footer{
+    margin-top:15px;
+    color:#ff6699;
+    font-weight:bold;
+}
+
+@media(max-width:480px){
+    .container{
+        padding:15px;
+    }
+
+    .imageContainer{
+        gap:10px;
+    }
+
+    .imageContainer img{
+        width:100px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="heart">💖</div>
+
+    <h1>Yayyyy! 😍💕</h1>
+
+    <div class="imageContainer">
+        <img src="project-img/yêu.gif" alt="Love GIF">
+        <img src="project-img/gif-gifkk.gif" alt="Cute GIF">
+        <img src="project-img/happy.png" alt="Happy Image">
+    </div>
+
+    <h2>You Said YES! 😍💕</h2>
+
+    <p>
+        Thank you for making this moment special. 💖
+    </p>
+
+    <div class="footer">
+        Forever & Always 💕
+    </div>
+
+</div>
+
+</body>
+</html>

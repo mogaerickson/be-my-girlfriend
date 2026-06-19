@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BemyGirlfriend | Question</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      margin: 0;
+      position: relative;
+      background: linear-gradient(to bottom, #87ceeb, #ffffff);
+    }
+
+    #mainGif {
+      width: 200px;
+      margin: 10px;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background: #ff007a;
+      color: white;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 10;
+    }
+
+    #yesBtn {
+      background: #00c851;
+    }
+
+    #noBtn {
+      position: absolute;
+    }
+
+    #imageContainer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 150%;
+      pointer-events: none;
+    }
+
+    #imageContainer img {
+      position: absolute;
+      width: 150px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      animation: popIn 0.3s ease;
+    }
+
+    @keyframes popIn {
+      from {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1) rotate(360deg);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      button {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Will you be my girlfriend? ❤️</h1>
+
+  <img id="mainGif" src="project-img/gif-gifkk.gif" alt="cute">
+
+  <br>
+
+  <button id="yesBtn">YES</button>
+  <button id="noBtn">NO</button>
+
+  <div id="imageContainer"></div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const imageContainer = document.getElementById("imageContainer");
+    const mainGif = document.getElementById("mainGif");
+
+    const images = [
+      'project-img/1.png',
+      'project-img/2.png',
+      'project-img/3.png',
+      'project-img/4.png',
+      'project-img/5.png',
+      'project-img/6.png',
+      'project-img/7.png',
+      'project-img/8.png'
+    ];
+
+    let count = 0;
+    let extraYes;
+
+    function isOverlapping(rect1, rect2) {
+      return !(
+        rect1.right < rect2.left ||
+        rect1.left > rect2.right ||
+        rect1.bottom < rect2.top ||
+        rect1.top > rect2.bottom
+      );
+    }
+
+    noBtn.addEventListener("click", () => {
+
+      if (count === 0) {
+        mainGif.src = 'project-img/2.png';
+      }
+
+      const newImg = document.createElement('img');
+      newImg.src = images[count % images.length];
+      newImg.alt = 'No button image';
+
+      const imgX = Math.random() * (window.innerWidth - 120);
+      const imgY = Math.random() * (window.innerHeight - 120);
+
+      newImg.style.left = imgX + "px";
+      newImg.style.top = imgY + "px";
+
+      imageContainer.appendChild(newImg);
+
+      count++;
+
+      let x, y, noBtnRect, yesBtnRect;
+      let attempts = 0;
+
+      do {
+        x = Math.random() * (window.innerWidth - 100);
+        y = Math.random() * (window.innerHeight - 100);
+
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+
+        noBtnRect = noBtn.getBoundingClientRect();
+        yesBtnRect = yesBtn.getBoundingClientRect();
+
+        attempts++;
+
+      } while (isOverlapping(noBtnRect, yesBtnRect) && attempts < 50);
+
+      yesBtn.style.fontSize = (18 + count * 5) + "px";
+      yesBtn.style.padding =
+        (12 + count * 2) + "px " +
+        (20 + count * 4) + "px";
+
+      if (count === 3 && !extraYes) {
+
+        extraYes = document.createElement("button");
+        extraYes.innerText = "YES ❤️";
+        extraYes.id = "extraYes";
+
+        extraYes.style.background = "#00c851";
+        extraYes.style.fontSize = yesBtn.style.fontSize;
+        extraYes.style.padding = yesBtn.style.padding;
+        extraYes.style.position = "relative";
+
+        extraYes.onclick = () => {
+          window.location.href = "/ily";
+        };
+
+        document.body.insertBefore(extraYes, imageContainer);
+      }
+
+      if (extraYes) {
+        extraYes.style.fontSize = (18 + count * 5) + "px";
+        extraYes.style.padding =
+          (12 + count * 2) + "px " +
+          (20 + count * 4) + "px";
+      }
+    });
+
+    yesBtn.addEventListener("click", () => {
+      window.location.href = "/ily";
+    });
+
+  </script>
+
+</body>
+</html>
