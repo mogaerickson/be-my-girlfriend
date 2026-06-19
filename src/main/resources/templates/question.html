@@ -76,13 +76,14 @@
         opacity: 1;
       }
     }
+    
+   @media (max-width: 768px) {
+  button {
+    padding: 4vw 6vw;
+    font-size: clamp(24px, 7vw, 70px);
+    margin: 3vw;
+  }
 
-    /* extra safety for small phones */
-    @media (max-width: 480px) {
-      button {
-        font-size: clamp(28px, 8vw, 60px);
-      }
-    }
   </style>
 </head>
 
