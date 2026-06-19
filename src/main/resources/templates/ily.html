@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ILY 😘|ily</title>
+<title>💍 She Said YESSSS! 💍</title>
 
 <style>
 *{
@@ -21,35 +21,50 @@ body{
     text-align:center;
     font-family:Arial, sans-serif;
 
-    background:linear-gradient(to bottom,#ffd6e7,#fff0f5);
+    background:linear-gradient(
+        to bottom,
+        #fff8dc,
+        #fff5e1,
+        #ffffff
+    );
+
     padding:20px;
+    overflow-x:hidden;
 }
 
 .container{
-    background:rgba(255,255,255,0.4);
-    backdrop-filter:blur(8px);
-    border-radius:20px;
+    background:rgba(255,255,255,0.7);
+    backdrop-filter:blur(10px);
+    border-radius:25px;
     padding:25px;
-    max-width:500px;
+    max-width:600px;
     width:100%;
     box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
 
+.ring{
+    font-size:4rem;
+    animation:float 2s infinite ease-in-out;
+    margin-bottom:10px;
+}
+
 h1{
-    color:#ff4d88;
-    font-size:clamp(2rem,5vw,3rem);
+    color:#d4af37;
+    font-size:clamp(2rem,6vw,4rem);
     margin-bottom:10px;
 }
 
 h2{
-    color:#ff6699;
-    font-size:clamp(1.3rem,4vw,2rem);
+    color:#b8860b;
+    font-size:clamp(1.4rem,4vw,2.2rem);
     margin:15px 0;
 }
 
 p{
     color:#555;
     font-size:1rem;
+    line-height:1.6;
+    margin-top:10px;
 }
 
 .imageContainer{
@@ -58,24 +73,31 @@ p{
     align-items:center;
     gap:15px;
     flex-wrap:wrap;
-    margin:20px 0;
+    margin:25px 0;
 }
 
 .imageContainer img{
-    width:min(140px, 30vw);
+    width:min(150px, 30vw);
     height:auto;
     border-radius:15px;
     box-shadow:0 5px 15px rgba(0,0,0,0.2);
-    transition:transform .3s;
+    transition:transform .3s ease;
 }
 
 .imageContainer img:hover{
     transform:scale(1.08);
 }
 
-.heart{
-    font-size:2rem;
-    animation:float 2s infinite ease-in-out;
+.footer{
+    margin-top:20px;
+    color:#b8860b;
+    font-weight:bold;
+    font-size:1.1rem;
+}
+
+.sparkle{
+    font-size:1.5rem;
+    animation:blink 1.5s infinite;
 }
 
 @keyframes float{
@@ -87,13 +109,17 @@ p{
     }
 }
 
-.footer{
-    margin-top:15px;
-    color:#ff6699;
-    font-weight:bold;
+@keyframes blink{
+    0%,100%{
+        opacity:1;
+    }
+    50%{
+        opacity:0.4;
+    }
 }
 
 @media(max-width:480px){
+
     .container{
         padding:15px;
     }
@@ -105,6 +131,10 @@ p{
     .imageContainer img{
         width:100px;
     }
+
+    .ring{
+        font-size:3rem;
+    }
 }
 </style>
 </head>
@@ -112,9 +142,9 @@ p{
 
 <div class="container">
 
-    <div class="heart">💖</div>
+    <div class="ring">💍</div>
 
-    <h1>Yayyyy! 😍💕</h1>
+    <h1>YAYYYYY! 💍✨</h1>
 
     <div class="imageContainer">
         <img src="project-img/y.gif" alt="Love GIF">
@@ -122,14 +152,25 @@ p{
         <img src="project-img/happy.png" alt="Happy Image">
     </div>
 
-    <h2>You Said YES! 😍💕</h2>
+    <h2>ydnam say yessss 💖💍</h2>
 
     <p>
-        Thank you for making this moment special. 💖
+        Thank you for saying YESSSS! ❤️<br><br>
+
+        Today marks the beginning of a beautiful journey together. 💍✨<br>
+
+        May our love continue to grow stronger every day,
+        filled with happiness, laughter, and endless memories. ❤️
     </p>
 
     <div class="footer">
-        Forever & Always 💕
+        ✨ Future Mr. & Mrs. 💍❤️ ✨
+    </div>
+
+    <br>
+
+    <div class="sparkle">
+        ✨ 💖 💍 💖 ✨
     </div>
 
 </div>
